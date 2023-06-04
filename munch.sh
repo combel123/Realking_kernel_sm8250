@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -e
 ## Copy this script inside the kernel directory
-KERNEL_DEFCONFIG=munch_defconfig
+KERNEL_DEFCONFIG=umi_defconfig
 DIR=`readlink -f .`
 MAIN=`readlink -f ${DIR}/..`
 export PATH="$MAIN/clang/bin:$PATH"
@@ -46,6 +46,7 @@ make -j$(nproc --all) O=out \
 TIME="$(date "+%Y%m%d-%H%M%S")"
 mkdir -p tmp
 cp -fp $ZIMAGE_DIR/Image.gz tmp
+cp -fp $ZIMAGE_DIR/Image tmp
 cp -fp $ZIMAGE_DIR/dtbo.img tmp
 cp -fp $ZIMAGE_DIR/dtb tmp
 cp -rp ./anykernel3/* tmp
@@ -53,6 +54,6 @@ cd tmp
 7za a -mx9 tmp.zip *
 cd ..
 rm *.zip
-cp -fp tmp/tmp.zip RealKing-Munch-MiUi-$TIME.zip
+cp -fp tmp/tmp.zip RealKing-UMI-MiUi-$TIME.zip
 rm -rf tmp
 echo $TIME
