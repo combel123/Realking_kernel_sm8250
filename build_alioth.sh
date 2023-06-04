@@ -9,14 +9,14 @@
 KERNEL_ROOT_DIR=$(pwd)
 
 TARGET_ARCH="arm64"
-[[ -f "$KERNEL_ROOT_DIR/arch/$TARGET_ARCH/configs/vendor/alioth_defconfig" ]] && \
-KERNEL_CONFIG="alioth_defconfig" \
-|| KERNEL_CONFIG="alioth_defconfig"
+[[ -f "$KERNEL_ROOT_DIR/arch/$TARGET_ARCH/configs/vendor/umi_defconfig" ]] && \
+KERNEL_CONFIG="umi_defconfig" \
+|| KERNEL_CONFIG="umi_defconfig"
 ZIP_KERNEL_STR="coreLinux"
-ZIP_DEVICE_NAME="apollo"
+ZIP_DEVICE_NAME="UMI"
 ZIP_PREFIX_STR="SigmaKernel-v1.0"
-export KBUILD_BUILD_USER="nob0dy"
-export KBUILD_BUILD_HOST="sigmaS0r"
+export KBUILD_BUILD_USER="dan"
+export KBUILD_BUILD_HOST="doank"
 USER_OVERRIDE="root"
 IS_WSL_USER="0"
 if [[ $USER == "$USER_OVERRIDE" ]]; then
